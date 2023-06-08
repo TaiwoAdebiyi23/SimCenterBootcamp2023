@@ -9,7 +9,7 @@ include_directories(SYSTEM ${MPI_INCLUDE_PATH})
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(pi gather1.c)
+add_executable(pi myPi.c)
 target_link_libraries(pi ${MPI_LIBRARIES})
 #target_include(pi ${MPI_INCLUDES})
 

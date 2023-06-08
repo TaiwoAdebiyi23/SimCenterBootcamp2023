@@ -26,10 +26,10 @@ int main(int argc, char** argv) {
 
   int result = 0;
   
-  double *A = 0;  // << SOME CODE HERE
-  double *B = 0;  // << SOME CODE HERE
-  double *C = 0;  // << SOME CODE HERE
-  double *C1 = 0; // << SOME CODE HERE
+  double *A = (double *)malloc(n*n*sizeof(double));
+  double *B = (double *)malloc(n*n*sizeof(double));
+  double *C = (double *)malloc(n*n*sizeof(double));
+  double *C1 = (double *)malloc(n*n*sizeof(double));
 
   if (A == 0 || B == 0 || C == 0 || C1 == 0) {
     printf("NO MMEORY ALLOCATED FOR ARRAYS\n");
@@ -39,6 +39,13 @@ int main(int argc, char** argv) {
   fill(A, n * n);
   fill(B, n * n);
   fill(C, n * n);
+
+  for (int row = 0; row<n; row++) {
+    for (int col=0; col<n; col++) {
+      printf("%f ", A[row*n+col]);
+    }
+    printf("\n");
+  }
     
   for (int i=0; i<n*n; i++)
     C1[i]=C[i];
@@ -56,7 +63,10 @@ int main(int argc, char** argv) {
     }
   }
 
-  // GOOD PRACTICE TO PUT 4 LINES of CODE HERE
+  free(A);
+  free(B);
+  free(C);
+  free(C1);
 
   
   printf("%d\n", result);
